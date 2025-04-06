@@ -13,20 +13,18 @@ public class NaveHiperEspacio {
             mostrarMenu();
             opcion = obtenerOpcion(sc);
             ejecutarOpcion(opcion, sc);
-        } while (opcion != 8);
+        } while (opcion != 7);
     }
 
     public static void mostrarMenu() {
         System.out.println("___Bienvenido a la Nave Hiper-Espacio___");
         System.out.println("___Que operación matricial quiere hacer?___");
-        System.out.println("___Opción 1: Crear Matriz___");
-        System.out.println("___Opción 2: Eliminar Matriz___");
-        System.out.println("___Opción 3: Sumar Matriz___");
-        System.out.println("___Opción 4: Restar Matriz___");
-        System.out.println("___Opción 5: Multiplicar Matriz___");
-        System.out.println("___Opción 6: Inversa de la Matriz___");
-        System.out.println("___Opción 7: Dividir Matriz___");
-        System.out.println("___Opción 8: Cerrar Programa___");
+        System.out.println("___Opción 1: Sumar Matriz___");
+        System.out.println("___Opción 2: Restar Matriz___");
+        System.out.println("___Opción 3: Multiplicar Matriz___");
+        System.out.println("___Opción 4: Inversa de la Matriz___");
+        System.out.println("___Opción 5: Dividir Matriz___");
+        System.out.println("___Opción 6: Cerrar Programa___");
     }
 
     public static int obtenerOpcion(Scanner sc) {
@@ -36,22 +34,22 @@ public class NaveHiperEspacio {
 
     public static void ejecutarOpcion(int opcion, Scanner sc) {
         switch (opcion) {
-            case 3:
+            case 1:
                 operacionSuma(sc);
                 break;
-            case 4:
+            case 2:
                 operacionResta(sc);
                 break;
-            case 5:
+            case 3:
                 operacionMultiplicacion(sc);
                 break;
-            case 6:
+            case 4:
                 operacionInversa(sc);
                 break;
-            case 7:
+            case 5:
                 operacionDivision(sc);
                 break;
-            case 8:
+            case 6:
                 System.out.println("Cerrando programa...");
                 break;
             default:
@@ -82,13 +80,19 @@ public class NaveHiperEspacio {
 
     public static void operacionInversa(Scanner sc) {
         double[][] matrizA = leerMatriz(sc, "A");
+        double[][] inversa = inversaMatriz(matrizA);
         // TODO: Implementar la inversa de la matriz
+
+        imprimirMatriz(inversa);
     }
 
     public static void operacionDivision(Scanner sc) {
         double[][] matrizA = leerMatriz(sc, "A");
         double[][] matrizB = leerMatriz(sc, "B");
+        double[][] resultado = divisionMatrices(matrizA, matrizB);
         // TODO: Implementar la división de matrices
+
+        imprimirMatriz(resultado);
     }
 
     public static double[][] leerMatriz(Scanner sc, String nombre) {
@@ -170,6 +174,7 @@ public class NaveHiperEspacio {
 
         double[][] resultado = multiplicacionMatrices(A, B);
         return resultado;
+
     }
 
     public static double determinante(double[][] matriz) {
