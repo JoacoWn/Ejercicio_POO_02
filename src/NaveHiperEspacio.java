@@ -153,11 +153,10 @@ public class NaveHiperEspacio {
                 {-A[1][0], A[0][0]}
         };
 
-        // Divide cada elemento por el determinante
         double[][] inversa = new double[2][2];
         for (int i = 0; i < 2; i++) {
             for (int j = 0; j < 2; j++) {
-                inversa[i][j] = adjunta[i][j] / determinante();
+                inversa[i][j] = adjunta[i][j] / determinante(A);
             }
         }
 
@@ -167,8 +166,10 @@ public class NaveHiperEspacio {
     public static double[][] divisionMatrices(double[][] A, double[][] B) {
         // TODO: Implementar la división de matrices (A^-1 * B).
 
-        double divisionMatrices = multiplicacionMatrices(double[][] inversaMatriz, double[][]matriz)
-        return new double[2][2];
+        A = inversaMatriz(A);
+
+        double[][] resultado = multiplicacionMatrices(A, B);
+        return resultado;
     }
 
     public static double determinante(double[][] matriz) {
@@ -177,3 +178,4 @@ public class NaveHiperEspacio {
         double determinante = matriz[0][0] * matriz[1][1] - matriz[0][1] * matriz[1][0];
         return determinante;
     }
+}
